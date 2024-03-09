@@ -66,13 +66,21 @@ public class Main {
         // отображаться в обратную сторону. Т. е. вместо «Иванов Иван» мы имеем «навИ вонавИ». Данные
         // с именами сотрудников хранятся в виде массива символов char[ ].
         //Напишите код, который в случае такого бага будет выводить фамилии и имена сотрудников в
-        // корректном виде. В качестве данных для массива используйте:
+        // корректном виде. В качестве данных для массива испо          льзуйте:
         //char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         //В результате в консоль должно быть выведено: Ivanov Ivan.
         //Важно: не используйте дополнительные массивы для решения этой задачи. Необходимо корректно
         // пройти по массиву циклом и распечатать его элементы в правильном порядке.
         char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = reverseFullName.length-1; i >= 0; i--) {
+        //for (int i = reverseFullName.length-1; i >= 0; i--) {
+        //   System.out.print(reverseFullName[i]);
+        //}
+        for (int i = 0; i < reverseFullName.length / 2; i++) {
+            char temp = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
+            reverseFullName[reverseFullName.length - 1 - i] = temp;
+        }
+        for (int i = 0; i < reverseFullName.length; i++) {
             System.out.print(reverseFullName[i]);
         }
        }
